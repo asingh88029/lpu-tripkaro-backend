@@ -8,6 +8,9 @@ const UserSchema = new mongoose.Schema({
         type: String, 
         enum: ['admin', 'user'], 
         default: 'user' 
+    },
+    profileImage : {
+        type : String
     }
 })
 

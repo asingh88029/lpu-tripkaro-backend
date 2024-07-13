@@ -10,6 +10,7 @@ const AdventureRouter = require("./src/routes/Adventures.Route");
 const AdventureDetailRouter = require("./src/routes/AdventureDetails.router");
 const AuthRouter = require("./src/routes/Auth.Route");
 const ReservationRouter = require("./src/routes/Reservation.route")
+const UserRouter = require("./src/routes/User.router")
 
 const PORT = process.env.PORT
 
@@ -114,6 +115,8 @@ server.use("/api/v1/adventures", AdventureRouter)
 server.use('/api/v1/details', AdventureDetailRouter)
 
 server.use('/api/v1/auth', AuthRouter)
+
+server.use('/api/v1/user/', UserRouter)
 
 server.use('/api/v1/reservations', ReservationRouter)
 
