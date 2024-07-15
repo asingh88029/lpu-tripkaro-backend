@@ -12,6 +12,8 @@ const AuthRouter = require("./src/routes/Auth.Route");
 const ReservationRouter = require("./src/routes/Reservation.route")
 const UserRouter = require("./src/routes/User.router")
 
+const logger = require("./src/middlewares/logger") 
+
 const PORT = process.env.PORT
 
 const server = express()
@@ -19,6 +21,8 @@ const server = express()
 server.use(cors())
 
 server.use(express.json())
+
+server.use(logger)
 
 // fs.watch("data/students.txt", (eventType, fileName)=>{
 //     console.log(fileName, " is changed")
