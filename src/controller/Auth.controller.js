@@ -92,13 +92,15 @@ async function LoginUserController(req, res){
 
         const TOKEN = await jwt.sign(PAYLOAD, JWT_SECRET_KEY, { expiresIn : '1h' })
 
-        res.status(httpStatus.OK).json({
+        const finaleData = {
             success : true,
-            userId : userResult._id,
-            email : userResult.email,
-            profileImage : userResult.profileImage,
+            userId : userResult.data._id,
+            email : userResult.data.email,
+            profileImage : userResult.data.profileImage,
             token : TOKEN
-        })
+        }
+
+        res.status(httpStatus.OK).json(finaleData)
 
     }catch(err){
         console.log(err)
