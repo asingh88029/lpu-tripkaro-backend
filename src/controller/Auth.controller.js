@@ -94,6 +94,9 @@ async function LoginUserController(req, res){
 
         res.status(httpStatus.OK).json({
             success : true,
+            userId : userResult._id,
+            email : userResult.email,
+            profileImage : userResult.profileImage,
             token : TOKEN
         })
 
