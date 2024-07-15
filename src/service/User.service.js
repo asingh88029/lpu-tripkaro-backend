@@ -46,7 +46,33 @@ async function GetUserByEmailId(email){
     }
 }
 
+async function UpdateProfilePictureService(userId, profileImageURL){
+    try{
+
+        const user = await User.findOne({_id : userId})
+
+        if(!user){
+            throw new Error("User not found while executing UpdateProfilePictureService")
+        }
+
+        user.profileImage = profileImageURL;
+
+        await user.save()
+
+        return {
+            success : true
+        }
+
+    }catch(err){
+        console.log(err)
+        return {
+            success : false
+        }
+    }
+}
+
 module.exports = {
     RegisterUserService,
-    GetUserByEmailId
+    GetUserByEmailId,
+    UpdateProfilePictureService
 }
